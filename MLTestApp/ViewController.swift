@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelText.text = "Select image"
+        labelText.text = "Select image. Tap on the image"
         imageView.image = UIImage(systemName: "photo")
         let tap = UITapGestureRecognizer(target: self,
                                          action: #selector(didTapImage))
@@ -54,17 +54,6 @@ class ViewController: UIViewController {
         
     }
     
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        picker.dismiss(animated: true, completion: nil)
-//    }
-//
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//        picker.dismiss(animated: true, completion: nil)
-//        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
-//        imageView.image = image
-//        guard let ciImage = CIImage(image: image) else { return }
-//        detect(image: ciImage)
-//    }
     func detect(image: CIImage) {
         let config = MLModelConfiguration()
         guard let model = try? Resnet50(configuration: config),

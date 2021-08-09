@@ -53,6 +53,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="C2g-Cj-5QT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="W9h-yM-ahm">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -72,8 +73,40 @@
                     <view key="view" contentMode="scaleToFill" id="NTq-R9-9P2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="107" translatesAutoresizingMaskIntoConstraints="NO" id="stJ-UF-uRz">
+                                <rect key="frame" x="20" y="733" width="374" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgz-aQ-E0j">
+                                        <rect key="frame" x="0.0" y="0.0" width="133.5" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.45882352939999999" blue="0.89019607840000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Load image">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loadImage:" destination="Tgu-zI-TSM" eventType="touchUpInside" id="QJZ-LU-KFw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G5U-iC-u5a">
+                                        <rect key="frame" x="240.5" y="0.0" width="133.5" height="30"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
+                                        <state key="normal" title="Text it!">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="textIt:" destination="Tgu-zI-TSM" eventType="touchUpInside" id="ejg-bv-Rro"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bKt-fv-OFV"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="bKt-fv-OFV" firstAttribute="trailing" secondItem="stJ-UF-uRz" secondAttribute="trailing" constant="20" id="7rs-bD-4Df"/>
+                            <constraint firstItem="bKt-fv-OFV" firstAttribute="bottom" secondItem="stJ-UF-uRz" secondAttribute="bottom" constant="50" id="h4l-0k-Gtq"/>
+                            <constraint firstItem="stJ-UF-uRz" firstAttribute="leading" secondItem="bKt-fv-OFV" secondAttribute="leading" constant="20" id="kfr-f4-giE"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="bookmarks" id="8Y1-FV-AqD"/>
                 </viewController>
@@ -83,6 +116,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

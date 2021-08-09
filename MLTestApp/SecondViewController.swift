@@ -26,12 +26,24 @@ class SecondViewController: UIViewController {
         return imageView
     }()
     
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(label)
         view.addSubview(imageView)
+       
         recognizeText(image: imageView.image)
         
+    }
+    @IBAction func loadImage(_ sender: UIButton) {
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                present(picker, animated: true)
+    }
+    @IBAction func textIt(_ sender: UIButton) {
+        recognizeText(image: imageView.image)
     }
     override func viewDidLayoutSubviews() {
         imageView.frame = CGRect(x: 20,
@@ -42,6 +54,7 @@ class SecondViewController: UIViewController {
                              y: view.frame.size.width + view.safeAreaInsets.top,
                              width: view.frame.size.width-40,
                              height: 200)
+        
     }
     
     private func recognizeText (image: UIImage?) {
@@ -77,4 +90,16 @@ class SecondViewController: UIViewController {
     }
     
     
+    
+}
+
+extension SecondViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        dismiss(animated: true, completion: nil)
+        
+    }
 }
